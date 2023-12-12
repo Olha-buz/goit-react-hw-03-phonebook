@@ -1,0 +1,28 @@
+.contacts {
+    list-style: none;
+    padding: 0;
+}
+
+.itemcontact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.pItem {
+    margin: 0;
+}
+
+.buttonremove {
+    height: 24px;
+    border-radius: 4px;
+    border: none;
+    background-color: #BBD1EB;
+}
+
+.buttonremove:hover,
+.buttonremove:active {
+    background-color: #707D8C;
+}
