@@ -16,6 +16,24 @@ export default class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contactLocalStorage = localStorage.getItem('contactList');
+    const parsedContact = JSON.parse(contactLocalStorage);
+
+    if (parsedContact) {
+      this.setState({ contacts: parsedContact });
+    }
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    const prevStateContacts = prevState.contacts;
+    const nextStateContacts = this.state.contacts;
+
+    if (prevStateContacts !== nextStateContacts) {
+      localStorage.setItem('contactList', JSON.stringify(nextStateContacts));
+    }
+  }
+
   addName = ({ name, number }) => {
     const names = this.state.contacts.map(contact =>
       contact.name.toLowerCase()
